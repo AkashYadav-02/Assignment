@@ -54,3 +54,13 @@ public class WaterBill {
 //200
 //Your water bill is :2075.0
 //Want  calculate another  water bill y/n:
+//Enter the Water meter reading :
+//200
+//Your water bill is :2075.0
+//Want  calculate another  water bill y/n:
+//y
+//Enter the Water meter reading :
+//400
+//Your water bill is :8075.0
+//Want  calculate another  water bill y/n:
+//n
