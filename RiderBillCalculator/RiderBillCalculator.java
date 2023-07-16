@@ -74,3 +74,11 @@ public class RiderBillCalculator {
 	}
 
 }
+// /output 
+// Enter the hight  :
+// 134
+// Enter the age  :
+// 44
+// Want photos 
+// yes
+// The total cost is :15
