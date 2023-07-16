@@ -35,6 +35,7 @@ public class MatrixMutiplyTest {
 
 	        for (int i = 0; i < rows2; i++) {
 	            for (int j = 0; j < cols2; j++) {
+	            	System.out.println("Enter "+"the elements :");
 	                matrix2[i][j] = scanner.nextInt();
 	            }
 	        }
@@ -55,3 +56,20 @@ public class MatrixMutiplyTest {
 	}
 
 }
+
+//output
+//Enter the number of rows for matrix 1: 2 
+//Enter the number of columns for matrix 1: 2
+//Enter the elements of matrix 1:
+//2 4
+//4 6
+//Enter the number of rows for matrix 2: 2
+//Enter the number of columns for matrix 2: 2
+//Enter the elements of matrix 2:
+//3
+//6
+//5
+//6
+//Matrix Product:
+//26 36 
+//42 60
