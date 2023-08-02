@@ -1,3 +1,5 @@
+const Notfound = require("./Error/NotFound");
+
 class Contact{
 
     static Id=0
@@ -7,44 +9,74 @@ class Contact{
     this.contactInfos=[]
 
 }
-getcontactInfoByid(contactInfoId){
-    let [indexOfContactInfo, isContactFind] = this.findContact(contactInfoId);
 
-    if(!isContactFind){
+getcontactInfo(){
 
-        return "Contact Info Not found "
-        }
-     return this.contactInfos[indexOfContactInfo]
+  try{
    
+     return this.contactInfos
+      }
+     catch (error)  {
+       throw error
+
+      }
+
+  
+}
+getcontactInfoByid(contactInfoId){
+
+  try{
+    let indexOfContactInfo= this.findContct(contactInfoId);
+     return this.contactInfos[indexOfContactInfo]
+      }
+     catch (error)  {
+       throw error
+
+      }
 
   
 }
 
 deleteContactDetails(){
-   this.contactInfos.splice(0,this.contactInfos.length)
-   return "All contacts Info deleted"
+  try{
+    this.contactInfos.splice(0,this.contactInfos.length)
+     
+ }
+  catch(error){
+   throw error 
+  }
+  
+  
 }
 deleteContactDetailsById(contactInfoId){
-  let [indexOfContactInfo, isContactFind] = this.findContact(contactInfoId);
+  try{
+     let index = this.findContact(contactInfoId);
+      this.contactInfos.splice(index,1)
 
-  if(!isContactFind){
-
-      return "Contact Info Not found "
-      }
-      this.contactInfos.splice(contactInfoId,1)
-      return `Contact Info  ID${contactInfoId} deleted`
+  }
+   catch(error){
+    throw error 
+   }
+    
     
 
 }
 
 findContact(contactId) {
+  try{
     for (let index = 0; index < this.contactInfos.length; index++) {
       if (contactId == this.contactInfos[index].Id) {
-        return [index, true];
+        return index;
       }
     }
-    return [-1, false];
+
+
+      throw new Notfound(" Contact not found in Directory")
+  }
+  catch (error){
+     throw error
   }
 
+}
 }
 module.exports=Contact
