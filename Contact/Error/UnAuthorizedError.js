@@ -9,3 +9,5 @@ class  UnauthorizedError extends BaseError{
 
     }
 }
+
+module.exports=UnauthorizedError
