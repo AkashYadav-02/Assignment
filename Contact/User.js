@@ -132,10 +132,8 @@ class User {
       if (!this.isAdmin) {
         throw new UnAuthorized("UnAuthorized");
       }
-      let [indexOfuser, isUserFind] = User.findUser(userId);
-      if (!isUserFind) {
-        return " User Not Found";
-      }
+      let indexOfuser  = User.findUser(userId);
+      
       User.allUser.splice(indexOfuser, 1);
     } catch (error) {
       throw error;
@@ -144,6 +142,9 @@ class User {
 
   createContact(contactfullName) {
     try {
+      if (this.isAdmin) {
+        throw new UnAuthorized("UnAuthorized");
+      }
       if (typeof contactfullName != "string") {
         throw new InvalidType(" Invalid contactfullName");
       }
@@ -157,7 +158,7 @@ class User {
 
   getAllContacts(userId) {
     try {
-      if (!this.isAdmin) {
+      if (this.isAdmin) {
         throw new UnAuthorized("UnAuthorized");
       }
       User.findUser(userId);
@@ -183,7 +184,7 @@ class User {
 
   updateContact(contactId, newValue) {
     try {
-      if (!this.isAdmin) {
+      if (this.isAdmin) {
         throw new UnAuthorized("UnAuthorized");
       }
       if (typeof newValue != "string") {
@@ -201,7 +202,7 @@ class User {
 
   createContactDetails(contactId, typeOfContact, valueOfContact) {
     try {
-      if (!this.isAdmin) {
+      if (this.isAdmin) {
         throw new UnAuthorized("UnAuthorized");
       }
       if (typeof typeOfContact != "string") {
