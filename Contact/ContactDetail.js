@@ -6,6 +6,9 @@ class ContactDetails{
     this.typeOfContact=typeOfContact
     this.valueOfContact=valueOfContact
     }
+    updateContactInfo(newValue) {
+        return this.valueOfContact = newValue
+    }
 
     
 

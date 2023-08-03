@@ -1,3 +1,4 @@
+const InvalidType = require("./Error/InvalidType");
 const Notfound = require("./Error/NotFound");
 
 class Contact{
@@ -60,6 +61,19 @@ deleteContactDetailsById(contactInfoId){
     
     
 
+}
+
+updateContactInfo(contactInfoId, newValue) {
+  try {
+      if (typeof contactInfoId != "number") {
+          throw new InvalidType("contact info ID invalid input")
+      }
+      let indexOfContactInfo = this.findContactInfo(contactInfoId)
+      this.contactInfos[indexOfContactInfo].updateContactInfo(newValue)
+      return this.contactInfos[indexOfContactInfo]
+  } catch (error) {
+      throw error
+  }
 }
 
 findContact(contactId) {
