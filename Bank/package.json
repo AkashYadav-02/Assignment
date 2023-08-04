@@ -1,0 +1,13 @@
+{
+  "name": "bank",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Bank.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node User.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
