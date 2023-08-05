@@ -103,24 +103,24 @@ class User {
       switch (parameter) {
         case " fullName ":
           if (typeof newValue != "string") {
-            return "Invalid full Name Format";
+            throw new InvalidType( "Invalid full Name Format");
           }
           User.allUser[indexOfuser].fullName = newValue;
           break;
         case " gender ":
           if (typeof newValue != "string") {
-            return "Invalid gender ";
+            throw new InvalidType( "Invalid gender Format ");
           }
           User.allUser[indexOfuser].gender = newValue;
           break;
         case " country ":
           if (typeof newValue != "string") {
-            return "Invalid country";
+            throw new InvalidType("Invalid country Format");
           }
           User.allUser[indexOfuser].country = newValue;
           break;
         default:
-          return "Parameter not found";
+           throw new NotFound("Parameter not found");
       }
     } catch (error) {
       throw error;
